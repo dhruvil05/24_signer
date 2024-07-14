@@ -14,7 +14,7 @@ const app = express();
 
 
 // Connection
-connectMongoDb('mongodb://localhost:27017/signer-dev-1').then(()=>console.log("MongoDB Connected"));
+connectMongoDb(process.env.DB_URL).then(()=>console.log("MongoDB Connected"));
     
 
 app.set('view engine', 'ejs');
