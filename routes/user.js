@@ -1,19 +1,18 @@
-const express = require('express');
-const { 
-    handleGetAllUsers,
-    handleGetUserById,
+const { Router } = require('express');
+const {
     handleCreateNewUser,
-    handleUpdateUserById,
-    handleDeleteUserById, 
+    handleLogin,
+    handleGetAllUsers, 
+    handleGetUserById,
 } = require('../controllers/user');
 
-const router = express.Router();
 
-router.get('/', handleGetAllUsers);
+const router = Router();
+
+router.post('/signup', handleCreateNewUser);
+router.post('/login', handleLogin);
+router.get('/all', handleGetAllUsers);
 router.get('/:id', handleGetUserById);
-router.post('/', handleCreateNewUser);
-router.patch('/:id', handleUpdateUserById);
-router.delete('/:id', handleDeleteUserById);
 
 
 module.exports = router;
